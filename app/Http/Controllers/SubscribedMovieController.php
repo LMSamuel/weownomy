@@ -24,7 +24,9 @@ class SubscribedMovieController extends Controller
      */
     public function create()
     {
-        //
+        //Display Create view
+        return view('subscribed_movies.create');
+
         
     }
 
@@ -37,6 +39,13 @@ class SubscribedMovieController extends Controller
     public function store(Request $request)
     {
         // 
+        $request->validate([
+            'title'=>'required'
+        ]);
+          //Use Eloquent ORM to create
+        SubscribedMovie::create($request->all);
+
+
     }
 
     /**
@@ -58,7 +67,6 @@ class SubscribedMovieController extends Controller
      */
     public function edit(SubscribedMovie $subscribedMovie)
     {
-        //
     }
 
     /**

@@ -16,9 +16,14 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+//Film Routes
 Route::get('/','FilmController@index')->name('index');
 Route::get('/film/{id}','FilmController@show')->name('show');
 Route::get('/film/{id}/critiques','FilmController@getCritics')->name('critics');
 Route::get('/lespluscritiques','FilmController@latest')->name('latest');
 Route::get('/film/{id}/note','FilmController@getNote')->name('note');
+
+//Subscribed Routes
+
+Route:: resource('subscribed_movies','SubscribedMovieController');
 
